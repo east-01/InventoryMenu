@@ -1,0 +1,5 @@
+main: com.mullen.ethan.inventorymenu.InventoryMenuPlugin
+name: InventoryMenu
+version: 0.1
+commands:
+api-version: 1.19
