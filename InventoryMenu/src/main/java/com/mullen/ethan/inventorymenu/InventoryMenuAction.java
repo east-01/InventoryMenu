@@ -6,7 +6,6 @@ public enum InventoryMenuAction {
 	
 	// T1 actions
 	ALL_ACTIONS,
-	NO_ACTIONS,
 	
 	// T2 actions
 	DROP,
@@ -15,7 +14,7 @@ public enum InventoryMenuAction {
 	
 	// T3 actions
 	CLONE_STACK, 
-	COLLECT_TO_CURSOR, 
+	COLLECT_TO_CURSOR,
 	DROP_ALL_CURSOR, DROP_ALL_SLOT, DROP_ONE_CURSOR, DROP_ONE_SLOT,
 	HOTBAR_MOVE_AND_READ, HOTBAR_SWAP, 
 	MOVE_TO_OTHER_INVENTORY, 
@@ -42,6 +41,11 @@ public enum InventoryMenuAction {
 		case PLACE_SOME:
 			return PLACE;
 
+		case DROP:
+		case PICKUP:
+		case PLACE:
+			return ALL_ACTIONS;
+			
 		default:
 			return null;
 		}
