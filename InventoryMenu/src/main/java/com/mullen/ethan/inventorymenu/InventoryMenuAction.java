@@ -51,6 +51,12 @@ public enum InventoryMenuAction {
 		}
 	}
 	
+	/** Is a shortcut for: 
+	 *    {@code (otherAction != null && otherAction == this) || (otherAction.generalize() != null && otherAction.generalize() == this)}*/
+	public boolean equals(InventoryMenuAction otherAction) {
+		return (otherAction != null && otherAction == this) || (otherAction.generalize() != null && otherAction.generalize() == this);
+	}
+	
 	public static InventoryMenuAction convert(InventoryAction action) {
 		try {
 			return InventoryMenuAction.valueOf(action.toString());
