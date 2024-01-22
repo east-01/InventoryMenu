@@ -5,6 +5,7 @@ import org.bukkit.event.Event;
 import org.bukkit.event.HandlerList;
 import org.bukkit.event.inventory.InventoryClickEvent;
 
+import com.mullen.ethan.inventorymenu.HypotheticalInventoryView;
 import com.mullen.ethan.inventorymenu.InventoryMenu;
 import com.mullen.ethan.inventorymenu.InventoryMenuAction;
 
@@ -17,6 +18,7 @@ public class InventoryMenuClickEvent extends Event implements Cancellable {
 	private InventoryMenu menu;
 	private InventoryClickEvent event;
 	private InventoryMenuAction action;
+	private HypotheticalInventoryView predictedView;
 	private boolean clickedTop;
 	private boolean clickedBottom;
 	
@@ -25,6 +27,7 @@ public class InventoryMenuClickEvent extends Event implements Cancellable {
 		this.menu = menu;
 		this.event = event;
 		this.action = action;
+		this.predictedView = new HypotheticalInventoryView(event);
 		
 		if(event.getClickedInventory() == null) return;
 		this.clickedTop = event.getClickedInventory() == menu.getView().getTopInventory();
@@ -50,6 +53,7 @@ public class InventoryMenuClickEvent extends Event implements Cancellable {
 	public InventoryMenu getMenu() { return menu; }
 	public InventoryClickEvent getOriginalEvent() { return event; }
 	public InventoryMenuAction getAction() { return action; }
+	public HypotheticalInventoryView getPredictedView() { return predictedView; }
 	public boolean clickedTopInventory() { return clickedTop; }
 	public boolean clickedBottomInventory() { return clickedBottom; }
 	

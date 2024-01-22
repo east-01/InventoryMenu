@@ -2,4 +2,7 @@ main: com.mullen.ethan.inventorymenu.InventoryMenuPlugin
 name: InventoryMenu
 version: 0.1
 commands:
+  mismatchwarnings:
+    usage: /mismatchwarnings
+    description: Toggles mismatch warnings on/off.
 api-version: 1.19

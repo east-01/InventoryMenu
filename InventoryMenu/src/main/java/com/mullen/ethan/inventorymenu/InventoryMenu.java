@@ -61,6 +61,7 @@ public class InventoryMenu implements Listener {
 		if(menuAction == null) return;
 				
 		SlotData data = elements[event.getRawSlot()];
+		
 		if(!data.isAllowed(menuAction)) {
 			event.setCancelled(true);
 		}
@@ -68,7 +69,6 @@ public class InventoryMenu implements Listener {
 		InventoryMenuClickEvent menuEvent = new InventoryMenuClickEvent(this, event, menuAction);
 		menuEvent.setCancelled(event.isCancelled());
 		Bukkit.getPluginManager().callEvent(menuEvent);
-		
 	}
 	
 	@EventHandler
